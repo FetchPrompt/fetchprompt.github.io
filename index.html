@@ -17,12 +17,14 @@
     <!-- Placeholder favicon (plain square). Replace with your own file when you have one. -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23b83a18'/%3E%3C/svg%3E">
 
+    <!-- Lets the CSS know JavaScript is on, before first paint (used by the scroll-in animation). -->
+    <script>document.documentElement.classList.add("js");</script>
     <script src="script.js" defer></script>
 </head>
 <body>
     <a class="skip" href="#main">Skip to content</a>
 
-    <header class="site-header">
+    <header class="site-header" data-reveal>
         <div class="wrap">
             <a class="brand" href="#top">FetchPrompt</a>
             <nav aria-label="Main">
@@ -37,23 +39,23 @@
     </header>
 
     <main id="main">
-        <div class="wrap">
 
+        <div class="wrap">
             <!-- HERO -->
             <section class="hero" id="top">
                 <div class="hero-head">
-                    <img src="kafic crno bela.jpg" alt="Portrait of Stefan Aničić" class="pfp">
-                    <div>
+                    <img src="kafic crno bela.jpg" alt="Portrait of Stefan Aničić" class="pfp" data-reveal="photo">
+                    <div data-reveal>
                         <h1>Stefan Aničić</h1>
                         <p class="eyebrow">Student / Software engineer</p>
                     </div>
                 </div>
-                <p class="lead">
+                <p class="lead" data-reveal>
                     My occupation is Software Engineering and Computer Science with implementation of modern AI technologies.
                     When I am home, I am mostly close to the machine experimenting: operating systems, networks, algorithms.
                 </p>
 
-                <dl class="rows">
+                <dl class="rows" data-reveal>
                     <div>
                         <dt>Now</dt>
                         <dd>Software engineering student</dd>
@@ -68,65 +70,76 @@
                     </div>
                 </dl>
             </section>
+        </div>
 
-            <!-- SKILLS -->
-            <section class="section" id="skills">
-                <h2 class="section-label">Skills</h2>
-                <div class="section-body">
-                    <dl class="rows">
-                        <div>
-                            <dt>Languages</dt>
-                            <dd>Python, C#, JavaScript, HTML, CSS</dd>
-                        </div>
-                        <div>
-                            <dt>Systems</dt>
-                            <dd>Windows, Linux, Networking, Hardware Architecture</dd>
-                        </div>
-                        <div>
-                            <dt>Tools</dt>
-                            <dd>Claude, Git, VS Code, Electron</dd>
-                        </div>
-                    </dl>
+        <!-- SHOWCASE: white skills strip on top, orange project stage below. Full width. -->
+        <div class="showcase">
+
+            <!-- SKILLS
+                 To add one: copy a whole <li class="skill"> and change the logo + name.
+                 The loop is duplicated by script.js, so list each skill only once here. -->
+            <section class="ticker" id="skills" aria-label="Skills and tools" data-reveal="strip">
+                <h2 class="band-label">Skills</h2>
+                <div class="marquee">
+                    <ul class="marquee-track">
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="" width="24" height="24"><span>Python</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/csharp/csharp-original.svg" alt="" width="24" height="24"><span>C#</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="" width="24" height="24"><span>JavaScript</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="" width="24" height="24"><span>HTML</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt="" width="24" height="24"><span>CSS</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/windows8/windows8-original.svg" alt="" width="24" height="24"><span>Windows</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg" alt="" width="24" height="24"><span>Linux</span></li>
+                        <li class="skill">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5 6.5 17M12 11.5l5.5 5.5"/></svg>
+                            <span>Networking</span>
+                        </li>
+                        <li class="skill">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+                            <span>Hardware Architecture</span>
+                        </li>
+                        <li class="skill"><img src="https://cdn.simpleicons.org/claude/D97757" alt="" width="24" height="24"><span>Claude</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="" width="24" height="24"><span>Git</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vscode/vscode-original.svg" alt="" width="24" height="24"><span>VS Code</span></li>
+                        <li class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/electron/electron-original.svg" alt="" width="24" height="24"><span>Electron</span></li>
+                    </ul>
                 </div>
             </section>
 
             <!-- PROJECTS
-                 To add one: copy a whole <li class="project"> block and edit it.
-                 Numbers (01, 02, ...) are generated by CSS. -->
-            <section class="section" id="projects">
-                <h2 class="section-label">Projects</h2>
-                <div class="section-body">
-                    <ol class="projects">
-                        <li class="project">
-                            <div>
-                                <h3><a href="https://github.com/FetchPrompt/MalloeAI">MalloeAI</a></h3>
-                                <p>
-                                    A portable AI launcher for using AI on the go. Desktop app built with Electron,
-                                    written by hand with Claude as a tutor.
-                                </p>
-                                <p class="meta">Electron / JavaScript / Claude</p>
-                            </div>
+                 To add one: copy a whole <li class="card"> block and edit it.
+                 Numbers (01, 02, ...) are generated by CSS. With more than three,
+                 the grid wraps onto a new row. -->
+            <section class="stage" id="projects">
+                <div class="wrap">
+                    <h2 class="band-label" data-reveal>Projects</h2>
+                    <ol class="cards">
+                        <li class="card" data-reveal>
+                            <h3><a href="https://github.com/FetchPrompt/MalloeAI">MalloeAI</a></h3>
+                            <p>
+                                A portable AI launcher for using AI on the go. Desktop app built with Electron,
+                                written by hand with Claude as a tutor.
+                            </p>
+                            <p class="meta">Electron / JavaScript / Claude</p>
                         </li>
-                        <li class="project">
-                            <div>
-                                <h3><a href="https://github.com/FetchPrompt/winOpt">winOpt</a></h3> <!-- TODO -->
-                                <p>a Windows-focused command-line utility designed to provide system maintenance, cleanup, optimization and software management tools from a single interface.</p>
-                                <p class="meta">Python / Windows</p>
-                            </div>
+                        <li class="card" data-reveal>
+                            <h3><a href="https://github.com/FetchPrompt/winOpt">winOpt</a></h3> <!-- TODO -->
+                            <p>A Windows-focused command-line utility designed to provide system maintenance, cleanup, optimization and software management tools from a single interface.</p>
+                            <p class="meta">Python / Windows</p>
                         </li>
-                        <li class="project">
-                            <div>
-                                <h3><a href="#">Project name</a></h3> <!-- TODO -->
-                                <p>One or two sentences: what it does and why you built it.</p>
-                                <p class="meta">C# / Windows</p>
-                            </div>
+                        <li class="card" data-reveal>
+                            <h3><a href="#">Project name</a></h3> <!-- TODO -->
+                            <p>One or two sentences: what it does and why you built it.</p>
+                            <p class="meta">C# / Windows</p>
                         </li>
                     </ol>
                 </div>
             </section>
 
+        </div>
+
+        <div class="wrap">
             <!-- ABOUT -->
-            <section class="section" id="about">
+            <section class="section" id="about" data-reveal>
                 <h2 class="section-label">About</h2>
                 <div class="section-body prose">
                     <p>
@@ -142,32 +155,70 @@
             </section>
 
             <!-- CONTACT -->
-            <section class="section" id="contact">
+        </div>
+
+        <div class="wrap wrap--wide">
+            <!-- CONTACT: one box, three cells. Move an <li> between cells to rearrange.
+                 Icons are black SVGs; CSS turns them white in dark mode (.icon-mono). -->
+            <section class="section section--stack" id="contact" data-reveal>
                 <h2 class="section-label">Contact</h2>
-                <div class="section-body">
-                    <dl class="rows">
-                        <div>
-                            <dt>Email</dt>
-                            <dd><a href="mailto:stefan.anicic2009@gmail.com">stefan.anicic2009@gmail.com</a></dd> <!-- TODO -->
-                        </div>
-                        <div>
-                            <dt>GitHub</dt>
-                            <dd><a href="https://github.com/FetchPrompt">github.com/FetchPrompt</a></dd>
-                        </div>
-                        <!--
-                        <div>
-                            <dt>LinkedIn</dt>
-                            <dd><a href="#">linkedin.com/in/...</a></dd>
-                        </div>
-                        -->
-                    </dl>
+                <div class="contact-box">
+
+                    <div class="contact-cell">
+                        <h3 class="cell-title">Message</h3>
+                        <ul>
+                            <li>
+                                <a href="mailto:stefan.anicic2009@gmail.com">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="m3 7 9 6.5L21 7"/></svg>
+                                    <span>stefan.anicic2009@gmail.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://discord.com/users/YOUR_ID"> <!-- TODO: your Discord profile link -->
+                                    <img class="icon-mono" src="https://cdn.simpleicons.org/discord/000000" alt="" width="28" height="28">
+                                    <span>Discord</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-cell">
+                        <h3 class="cell-title">Professional</h3>
+                        <ul>
+                            <li>
+                                <a href="https://github.com/FetchPrompt">
+                                    <img class="icon-mono" src="https://cdn.simpleicons.org/github/000000" alt="" width="28" height="28">
+                                    <span>GitHub</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/YOUR-NAME"> <!-- TODO: your LinkedIn link -->
+                                    <img class="icon-mono" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linkedin/linkedin-plain.svg" alt="" width="28" height="28">
+                                    <span>LinkedIn</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-cell">
+                        <h3 class="cell-title">Social</h3>
+                        <ul>
+                            <li>
+                                <a href="https://www.instagram.com/YOUR-USERNAME"> <!-- TODO: your Instagram link -->
+                                    <img class="icon-mono" src="https://cdn.simpleicons.org/instagram/000000" alt="" width="28" height="28">
+                                    <span>Instagram</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </section>
-
         </div>
+
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" data-reveal>
         <div class="wrap">
             <p>&copy; <span id="year">2026</span> Stefan</p>
             <p>Plain HTML, CSS and a little JavaScript.</p>
