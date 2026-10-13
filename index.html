@@ -7,17 +7,14 @@
     <title>Stefan — Software engineering student</title>
     <meta name="description" content="Portfolio of Stefan, software engineering student. Python, C#, JavaScript, Electron, Linux and networking.">
 
-    <!-- Fonts: IBM Plex Sans + IBM Plex Mono. Falls back to system fonts if offline. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Placeholder favicon (plain square). Replace with your own file when you have one. -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23b83a18'/%3E%3C/svg%3E">
 
-    <!-- Lets the CSS know JavaScript is on, before first paint (used by the scroll-in animation). -->
     <script>document.documentElement.classList.add("js");</script>
     <script src="script.js" defer></script>
 </head>
@@ -41,43 +38,52 @@
     <main id="main">
 
         <div class="wrap">
-            <!-- HERO -->
             <section class="hero" id="top">
+                <!-- Main statement: centre of the first screen. script.js types it out.
+                     Wrap a word or phrase in <span class="kw kw-xxx"> to highlight it;
+                     colours are the .kw-* classes in style.css. -->
+                <div class="statement" data-reveal>
+                    <p>
+                        I am a <span class="kw kw-tech">Software Engineer</span> and
+                        <span class="kw kw-tech">Computer Science</span> enthusiast who is able to
+                        <span class="kw kw-skill">master any skill</span> with implementation of modern
+                        <span class="kw kw-ai">AI</span> technologies.
+                    </p>
+                    <p>
+                        Beside code, I am a <span class="kw kw-movie">movie lover</span>,
+                        <span class="kw kw-game">gamer</span> and a
+                        <span class="kw kw-gym">gym rat</span>!
+                    </p>
+                </div>
+
                 <div class="hero-head">
-                    <img src="kafic crno bela.jpg" alt="Portrait of Stefan Aničić" class="pfp" data-reveal="photo">
+                    <button type="button" class="pfp-button" data-reveal="photo" aria-label="View photo larger" aria-haspopup="dialog">
+                        <img src="kafic crno bela.jpg" alt="Portrait of Stefan Aničić" class="pfp">
+                    </button>
                     <div data-reveal>
                         <h1>Stefan Aničić</h1>
                         <p class="eyebrow">Student / Software engineer</p>
                     </div>
                 </div>
-                <p class="lead" data-reveal>
-                    My occupation is Software Engineering and Computer Science with implementation of modern AI technologies.
-                    When I am home, I am mostly close to the machine experimenting: operating systems, networks, algorithms.
-                </p>
 
                 <dl class="rows" data-reveal>
                     <div>
-                        <dt>Now</dt>
-                        <dd>Software engineering student</dd>
+                        <dt>Title</dt>
+                        <dd>Computer Science Student</dd>
                     </div>
                     <div>
                         <dt>Studying at</dt>
-                        <dd>Mitrovacka gimnazija, Sremska Mitrovica (High School)</dd>
+                        <dd>Mitrovacka gimnazija, Sremska Mitrovica</dd>
                     </div>
                     <div>
                         <dt>Based in</dt>
-                        <dd>[Sremska Mitrovica, Serbia]</dd> <!-- TODO -->
+                        <dd>Sremska Mitrovica, Serbia</dd>
                     </div>
                 </dl>
             </section>
         </div>
 
-        <!-- SHOWCASE: white skills strip on top, orange project stage below. Full width. -->
         <div class="showcase">
-
-            <!-- SKILLS
-                 To add one: copy a whole <li class="skill"> and change the logo + name.
-                 The loop is duplicated by script.js, so list each skill only once here. -->
             <section class="ticker" id="skills" aria-label="Skills and tools" data-reveal="strip">
                 <h2 class="band-label">Skills</h2>
                 <div class="marquee">
@@ -105,10 +111,6 @@
                 </div>
             </section>
 
-            <!-- PROJECTS
-                 To add one: copy a whole <li class="card"> block and edit it.
-                 Numbers (01, 02, ...) are generated by CSS. With more than three,
-                 the grid wraps onto a new row. -->
             <section class="stage" id="projects">
                 <div class="wrap">
                     <h2 class="band-label" data-reveal>Projects</h2>
@@ -138,28 +140,34 @@
         </div>
 
         <div class="wrap">
-            <!-- ABOUT -->
-            <section class="section" id="about" data-reveal>
+            <section class="section" id="about" data-reveal="fade">
                 <h2 class="section-label">About</h2>
                 <div class="section-body prose">
-                    <p>
-                        I'm a software engineering student. Day to day I write Python and C#,
-                        build desktop tools with Electron, and keep everything in Git.
+                    <figure class="quote">
+                        <blockquote>
+                            <p>“The saddest thing in life is wasted talent, and the choices that you make will shape your life forever.”</p>
+                        </blockquote>
+                        <figcaption>Chazz Palminteri, <cite>A Bronx Tale</cite></figcaption>
+                    </figure>
+
+                    <!-- Text: the first line is set large and its words rise in one by one
+                         (data-words); the underlined phrase draws itself. Plain editing:
+                         just change the words. -->
+                    <p class="about-lead" data-words>I'm a Computer Science student located in Serbia.</p>
+                    <p class="about-body">
+                        Day to day I write and debug code, build desktop tools and solve algorithms.
                     </p>
-                    <p>
-                        <!-- TODO: replace with your own words -->
-                        [A few honest sentences: what got you into programming, what you're learning right now,
-                        what you want to build next.]
+                    <p class="about-body about-body--quiet">
+                        <span class="about-mark">I got in love with computers as a child and I stuck to it!</span>
+                        In the meantime, I have mastered the skills required for
+                        the best outcome possible in the IT industry.
                     </p>
                 </div>
             </section>
 
-            <!-- CONTACT -->
         </div>
 
         <div class="wrap wrap--wide">
-            <!-- CONTACT: one box, three cells. Move an <li> between cells to rearrange.
-                 Icons are black SVGs; CSS turns them white in dark mode (.icon-mono). -->
             <section class="section section--stack" id="contact" data-reveal>
                 <h2 class="section-label">Contact</h2>
                 <div class="contact-box">
@@ -174,7 +182,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://discord.com/users/YOUR_ID"> <!-- TODO: your Discord profile link -->
+                                <a href="https://discord.com/users/540196379281326081">
                                     <img class="icon-mono" src="https://cdn.simpleicons.org/discord/000000" alt="" width="28" height="28">
                                     <span>Discord</span>
                                 </a>
@@ -192,7 +200,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/in/YOUR-NAME"> <!-- TODO: your LinkedIn link -->
+                                <a href="https://www.linkedin.com/in/YOUR-NAME">
                                     <img class="icon-mono" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linkedin/linkedin-plain.svg" alt="" width="28" height="28">
                                     <span>LinkedIn</span>
                                 </a>
@@ -204,7 +212,7 @@
                         <h3 class="cell-title">Social</h3>
                         <ul>
                             <li>
-                                <a href="https://www.instagram.com/YOUR-USERNAME"> <!-- TODO: your Instagram link -->
+                                <a href="https://www.instagram.com/aniciccstefan">
                                     <img class="icon-mono" src="https://cdn.simpleicons.org/instagram/000000" alt="" width="28" height="28">
                                     <span>Instagram</span>
                                 </a>
@@ -220,9 +228,17 @@
 
     <footer class="site-footer" data-reveal>
         <div class="wrap">
-            <p>&copy; <span id="year">2026</span> Stefan</p>
-            <p>Plain HTML, CSS and a little JavaScript.</p>
+            <p>&copy; <span id="year">2026</span> Stefan Aničić</p>
+            <p>Plain HTML, CSS and JavaScript.</p>
         </div>
     </footer>
+
+    <!-- Photo viewer: opened by the photo button in the hero (script.js). -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Profile photo" hidden>
+        <button type="button" class="lightbox-close" aria-label="Close photo">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+        <img src="kafic crno bela.jpg" alt="Portrait of Stefan Aničić">
+    </div>
 </body>
 </html>
